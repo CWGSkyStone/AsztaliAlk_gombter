@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 
+
 public class MainController {
 
     @FXML
@@ -17,7 +18,15 @@ public class MainController {
 
     @FXML
     void onClickCalcButton(ActionEvent event) {
+        this.startCalc();
+    }
 
+    void startCalc(){
+        double radius = Double.parseDouble(radiusField.getText());
+        double volume = Sphere.calcVolume(radius);
+        double surface = Sphere.calcSurface(radius);
+        volumeField.setText(String.valueOf(volume));
+        surfaceField.setText(String.valueOf(surface));
     }
 
 }
