@@ -27,6 +27,12 @@ public class MainController {
         double surface = Sphere.calcSurface(radius);
         volumeField.setText(String.valueOf(volume));
         surfaceField.setText(String.valueOf(surface));
+        String line = makeLine(radius, volume, surface);
+        FileHandler.writeToFile(line);
+    }
+
+    String makeLine(double radius, double volume, double surface){
+        return radius + ";" + volume + ";" + surface + "\n";
     }
 
 }
